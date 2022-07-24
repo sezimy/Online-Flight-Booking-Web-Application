@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<form action="/find" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus="" class="form-control mx-auto w-auto" name="city" placeholder="Destination" type="text" pattern="[A-Za-z]{3}" title="Please, enter only the code of the city using three letters(case insensitive)" required>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus="" class="form-control mx-auto w-auto" name="date" type="date" required>
+    </div>
+    <button class="btn btn-outline-primary" type="submit">Search flights</button>
+</form>
+{% endblock %}

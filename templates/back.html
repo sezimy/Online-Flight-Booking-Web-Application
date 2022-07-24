@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr scope="col">
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Flight number</th>
+            <th>Class</th>
+            <th>Number of passengers</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+            <tr scope="row">
+                <td>{{ row.destination }}</td>
+                <td>{{ row.date}}</td>
+                <td>{{ row.time}}</td>
+                <td>{{ row.flight_number}}</td>
+                <td>{{ row.class }}</td>
+                <td>{{ row.num_passengers }}</td>
+                <td>
+                <form action="/cancel" method="post">
+                    <input name="id" type="hidden" value="{{ row.id }}">
+                    <button class="btn btn-outline-primary" type="submit">Cancel</button>
+                </form>
+                </td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

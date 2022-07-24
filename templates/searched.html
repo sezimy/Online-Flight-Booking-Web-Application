@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Destination</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Flight number</th>
+            <th scope="col">Cost</th>
+        </tr>
+    </thead>
+   <tbody>
+    {% for time, elem in numbertime %}
+            <tr scope="row">
+                <td>{{ name }}</td>
+                <td>{{ flight_date }}</td>
+                <td>{{time}}</td>
+                <td>{{elem}}</td>
+                <td>{{ 2000 | usd}}</td>
+                <td>
+                    <form action="/book" method = "post">
+                     <input name="destination" type="hidden" value="{{ name }}">
+                     <input name="date" type="hidden" value="{{ flight_date }}">
+                     <input name="time" type="hidden" value="{{ time }}">
+                     <input name="flight_number" type="hidden" value="{{ elem }}">
+                     <button class="btn btn-outline-primary" type="submit" name="book">Book</button>
+                    </form>
+                </td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}
+
+
+

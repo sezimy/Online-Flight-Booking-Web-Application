@@ -1,1 +1,22 @@
-# Online-Flight-Booking-Web-Application
+API_KEY: export API_KEY=e4fe059f048765a5a7527fa3f68910ff	(Just put this line to the terminal)
+
+The flask_mail module should be installed before running the program, otherwise it will not recognize flask_mail module. So, you need to put this code to the terminal and execute: "pip install Flask-Mail"
+
+My web application is for users to book flight tickets from or to Schiphol airport in Amsterdam. I took the API key provided publically by this airport and connected its endpoints to my project so that I can access real-time data. 
+
+So, first of all, a user has to run the flask application inside the folder called project. The new user will see the registration and login forms in the off-canvas menu. I took the design of this menu from this link: https://www.w3schools.com/howto/howto_js_off-canvas.asp. In the registration form, a user must enter a username, password, and confirmation of the password. The username should be unique, which means that if there is already a user with the same username, the program will prompt the user to enter another username. Password can be any sequence of characters depending on the user. Regarding the login form, users just have to enter their username and password, and they should match with the user's data in the database entered during registration, otherwise, access will be denied. 
+
+After logging in, the user will see again off-canvas menu, but with different links. On the MY TICKETS page, there will be a table that depicts all tickets that the user has already booked, if no tickets yet, the table will be empty. This table will contain the destination, date, time, number of the flight along with the number of passengers and class.
+
+If the user clicks the logout link, he/she will just log out of the system and will be redirected to the login page. 
+
+On the SEARCH TICKETS page, there will be two input forms: one for destination and one for the date of the flight. The user must enter the real code of the city and choose the appropriate date. If the user enters the fake code, there will be an error alert "INVALID CITY". If there are no available flights based on the user's inputs, there will be an error alert "NO AVAILABLE FLIGHTS". After the user enters the right data, he/she will be redirected to the next page with the table that contains all flights that satisfy the user's requirements. This table will contain the destination, date, time, number of the flight. Also, for each flight, there will be a "BOOK" button, which will redirect the user to the next page respectively if clicked in the case user wants to book a particular flight. So, the next page will contain three input forms like email, number of passengers, and a class of the flight. The email entered by the user should be in the right form: contain "@". Also, users can only choose a positive number of passengers starting from 1 and only one option from the "Economy" and "Business" classes. After entering all this data, the user should click the button "SUBMIT", which will insert all required flight data into the database for this particular user. Moreover, after submission user will receive an email with the confirmation of the successful booking. It is important to note that this API key does not provide any information about the cost of the tickets, so I decided that cost of each ticket will be $2000, which is not the case in real life. Afterward, the user will be redirected to the main "MY TICKETS" page, which contains all flight tickets booked by the user.
+
+On the "CANCEL TICKET" page, there again will be a table that depicts all tickets that the user has already booked, but also there will be a "CANCEL" button for each flight. If the user clicks this button for a certain flight, that flight will be deleted from the database, and only 75% percent of the whole ticket cost will be returned. Afterward, the user again will be redirected to the "MY TICKETS" page. 
+
+On the "ADD CASH" page, the user can add cash to his personal balance in order to buy tickets. Users can enter only positive numbers. After the user clicks the button "ADD", the entered amount of money will be added to that user's personal balance.
+
+On the "CHANGE PASSWORD" page, the user can change his password. There is no validation so that the user can enter any sequence of characters. After entering the new password, if the user clicks the button "CHANGE", the hashed version of the new password will replace the old password. 
+
+
+Link to the video on Youtube: https://youtu.be/J1inkLhcHeM

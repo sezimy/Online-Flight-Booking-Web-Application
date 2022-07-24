@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Destination</th>
+            <th class="text-start">Date</th>
+            <th class="text-end">Time</th>
+            <th class="text-end">Flight number</th>
+            <th class="text-end">Class</th>
+            <th class="text-end">Number of passengers</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+            <tr>
+                <td class="text-start">{{ row.destination }}</td>
+                <td class="text-start">{{ row.date}}</td>
+                <td class="text-end">{{ row.time}}</td>
+                <td class="text-end">{{ row.flight_number}}</td>
+                <td class="text-end">{{ row.class }}</td>
+                <td class="text-end">{{ row.num_passengers }}</td>
+            </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Personal balance:</td>
+            <td class="border-0 w-bold text-end">{{ cash | usd}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}

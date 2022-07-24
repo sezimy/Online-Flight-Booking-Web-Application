@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<div>
+    <form action="/submit" class="forms" method="post">
+        <input name="destination" type="hidden" value="{{ destination }}">
+        <input name="date" type="hidden" value="{{ date }}">
+        <input name="time" type="hidden" value="{{ time }}">
+        <input name="flight_number" type="hidden" value="{{ flight_number }}">
+        <div class="mb-3">
+        <label for="email">Email:</label>
+        <input class="form-control mx-auto w-auto"  name="email" type="email" required>
+        </div>
+        <div class="mb-3">
+        <label for="passengers">Number of passengers:</label>
+        <input class="form-control mx-auto w-auto"  name="passengers" type="number" min="1" required>
+        </div>
+        <div class="mb-3">
+        <label for="class">Class:</label>
+        <select class="form-select mx-auto w-auto" name="class">
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+        </select>
+        </div>
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
